@@ -1,58 +1,59 @@
-#1 задача.
-# Текстовый файл состоит не более чем из 106 символов и содержит
-# только заглавные буквы латинского алфавита (A..Z).
-# Определите максимальное количество идущих подряд символов,
-# среди которых нет сочетания стоящих рядом букв P и R (в любом порядке).
+#1задача
+# Текстовый файл 2411.txt состоит из арабских цифр (0, 1, …, 9).
+# Определите максимальное количество идущих подряд символов
+# в прилагаемом файле, среди которых нет символов 1 и 2, а также 1 и 3 стоящих рядом.
 
-      #1способ
-# with open ("files/1873.txt") as file:
-#     data = file.read()
-#     data = data.replace("PR","P R").replace("RP","R P")
-#     answ = len(max(data.split(),key = len))
-#     print(answ)
-#2940
+# 3мя способами
+#
+# While
+# Линейный
+# Плавающее окно
 
-    #2способ
-# with open ("files/1873.txt") as file:
+
+#           1способ. While
+
+# with open("files/2411.txt") as file:
 #     data = file.read()
-# count = 1
+#
+#     while "13" in data and "12" in data:
+#         data = data.replace("12","1 2").replace("21","2 1")
+#         data = data.replace("13","1 3").replace("31","3 1")
+#
+#     data = data.split()
+#     answ = len(max(data, key=len))
+#
+# print(answ)
+#339
+
+#           2способ. Линейный
+
+# with open("files/2411.txt") as file:
+#      data = file.read()
+# cur = 1
 # max_len = 0
 # for i in range(len(data)-1):
-#     if data[i] + data[i+1] in ("PR","RP"):
-#         count=1
+#     if data[i] + data[i+1] in ("12","13","21","31"):
+#         cur=1
 #     else:
-#         count+=1
-#     max_len = max(count, max_len)
+#         cur+=1
+#     max_len = max(cur, max_len)
 # print(max_len)
-#2940
+#339
 
+#            3способ окно
 
-# 2задача.
-#           1 способ
-# Текстовый файл состоит из арабских цифр (0, 1, …, 9).
-# Определите максимальное количество идущих подряд символов
-# в прилагаемом файле, среди которых нет символов 0, стоящих рядом.
-
-# with open("files/2410.txt") as file:
-#     data = file.read()
-#     data = data.replace("00","0 0")
-#     answer = len(max(data.split(), key=len))
-#     print(answer)
-#977
-
-#           2способ
-with open("files/2410.txt") as file:
+with open("files/2411.txt") as file:
     data = file.read()
-count = 1
-max_len = 0
-for i in range(len(data)-1):
-    if data[i] + data[i+1] in "00":
-        count = 1
-    else:
-        count+=1
-    max_len = max(count, max_len)
-print(max_len)
-#977
 
+left = 0
+max_len = 0
+for right in range(1,len(data)):
+    if data[right] == data[right-1]:
+        left = right
+
+    cur_len = right - left + 1
+
+    max_len = max(max_len, cur_len)
+print(max_len)
 
 
