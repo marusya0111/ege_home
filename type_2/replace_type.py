@@ -35,15 +35,15 @@
 # или только из троек NPO и PNO в произвольном порядке их следования.
 
 # data = "PNOPNOPNOPNOP"
-with open("../files/2400.txt") as file:
-     data = file.read()
-     pairs = ["NPO","PNO"]
-     for i in pairs:
-        data = data.replace(i,"*")
-    for i in "NOP":
-        data = data.replace(i," ")
-        data = data.split()
-        max_len = len(max(data, key=len))
-print(max_len)
+# with open("../files/2400.txt") as file:
+#      data = file.read()
+#      pairs = ["NPO","PNO"]
+#      for i in pairs:
+#         data = data.replace(i,"*")
+#     for i in "NOP":
+#         data = data.replace(i," ")
+#         data = data.split()
+#         max_len = len(max(data, key=len))
+# print(max_len)
 
 
