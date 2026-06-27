@@ -30,25 +30,25 @@
 # 14-ричного числа. В ответе запишите количество символов
 # (значащих цифр в записи числа) в этой последовательности.
 
-from string import digits,ascii_uppercase
-alph = digits + ascii_uppercase
-even = alph[:14:2]
-good= alph[:14]
-bad = alph[14:]
-cnt = max_len = 0
-
-with open("../files/2422.txt") as file:
-    data = file.readline()
-
-for i in bad:
-    data = data.replace(i," ")
-
-for element in data.split():
-    while element and element[0] == "0":
-        element = element[1:]
-    while element and element[-1] not in even:
-        element = element[:-1]
-    max_len = max(len(element),max_len)
-
-print(max_len)
+# from string import digits,ascii_uppercase
+# alph = digits + ascii_uppercase
+# even = alph[:14:2]
+# good= alph[:14]
+# bad = alph[14:]
+# cnt = max_len = 0
+#
+# with open("../files/2422.txt") as file:
+#     data = file.readline()
+#
+# for i in bad:
+#     data = data.replace(i," ")
+#
+# for element in data.split():
+#     while element and element[0] == "0":
+#         element = element[1:]
+#     while element and element[-1] not in even:
+#         element = element[:-1]
+#     max_len = max(len(element),max_len)
+#
+# print(max_len)
 #25
